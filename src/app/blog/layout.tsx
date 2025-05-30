@@ -1,7 +1,8 @@
 'use client'
 
-import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import Header from '../components/Header'
+import Logo from '../components/Logo'
 
 export default function BlogLayout({
   children,
@@ -13,25 +14,10 @@ export default function BlogLayout({
   return (
     <div className="min-h-screen bg-cream-white dark:bg-off-black transition-colors duration-300">
       {/* Navigation */}
-      <nav className="border-b border-off-black/10 dark:border-cream-white/20 bg-cream-white/80 dark:bg-off-black/80 backdrop-blur-sm sticky top-0 z-10">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 lg:py-6">
-          <div className="flex items-center justify-between">
-            <button 
-              onClick={() => router.back()}
-              className="font-sans text-sm sm:text-base text-jade-teal hover:text-orange-red transition-colors duration-200 flex items-center"
-            >
-              ← Back
-            </button>
-            
-            <Link 
-              href="/" 
-              className="font-serif text-lg sm:text-xl font-bold text-off-black dark:text-cream-white hover:text-orange-red dark:hover:text-orange-red transition-colors duration-200"
-            >
-              Molus
-            </Link>
-          </div>
-        </div>
-      </nav>
+      <Header 
+        showBackButton={true} 
+        onBackClick={() => router.back()} 
+      />
       
       {/* Main Content */}
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
