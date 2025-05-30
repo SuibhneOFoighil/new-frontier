@@ -4,6 +4,12 @@ export default function BlogPage() {
   // In a real application, you would fetch this data from a CMS, database, or file system
   const posts = [
     {
+      slug: 'michigan-dei-institutional-courage',
+      title: 'Michigan\'s DEI Dismantling: A Crisis of Institutional Courage',
+      excerpt: 'The University of Michigan\'s complete elimination of its DEI program reveals how contingent institutional values become when political pressure mounts.',
+      date: '2025-01-15',
+    },
+    {
       slug: 'welcome-to-my-blog',
       title: 'Welcome to My Blog',
       excerpt: 'This is my first blog post written in MDX!',

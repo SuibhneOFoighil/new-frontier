@@ -90,6 +90,20 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {...(props as ImageProps)}
       />
     ),
+    aside: ({ children }: { children: React.ReactNode }) => (
+      <aside className="my-6 lg:my-8 p-4 sm:p-6 bg-gradient-to-r from-jade-teal/10 to-gold/10 dark:from-jade-teal/20 dark:to-gold/20 border-l-4 border-jade-teal rounded-r-lg">
+        <div className="font-serif text-base sm:text-lg italic text-off-black/80 dark:text-cream-white/90 leading-relaxed">
+          {children}
+        </div>
+      </aside>
+    ),
+    Callout: ({ children }: { children: React.ReactNode }) => (
+      <div className="my-6 lg:my-8 p-4 sm:p-6 bg-gradient-to-r from-jade-teal/10 to-gold/10 dark:from-jade-teal/20 dark:to-gold/20 border-l-4 border-jade-teal rounded-r-lg">
+        <div className="font-serif text-base sm:text-lg italic text-off-black/80 dark:text-cream-white/90 leading-relaxed">
+          {children}
+        </div>
+      </div>
+    ),
     ...components,
   }
 } 
