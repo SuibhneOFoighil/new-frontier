@@ -1,0 +1,73 @@
+export const metadata = {
+  title: 'Welcome to My Blog',
+  author: 'Suibhne',
+  date: '2024-01-15',
+  excerpt: 'This is my first blog post written in MDX!'
+}
+
+# Welcome to My Blog
+
+Hello and welcome to my blog! This is my first post written in **MDX**, which allows me to combine Markdown with React components.
+
+## What is MDX?
+
+MDX is a format that lets you seamlessly write JSX in your Markdown documents. You can import components, such as interactive charts or alerts, and embed them within your content.
+
+Here's what makes MDX special:
+
+- **Markdown syntax** for easy writing
+- **React components** for interactive content
+- **Type safety** with TypeScript support
+- **Great developer experience** with syntax highlighting
+
+## Code Examples
+
+Here's a simple JavaScript function:
+
+```javascript
+function greet(name) {
+  return `Hello, ${name}!`;
+}
+
+console.log(greet('World'));
+```
+
+And here's some TypeScript:
+
+```typescript
+interface User {
+  name: string;
+  email: string;
+}
+
+const user: User = {
+  name: 'Suibhne',
+  email: 'hello@suibhne.blog'
+};
+```
+
+## Lists and Quotes
+
+Here are some benefits of using MDX for blogging:
+
+1. **Easy to write** - Just use Markdown syntax
+2. **Powerful** - Add React components when needed
+3. **Flexible** - Customize styling with Tailwind CSS
+4. **Fast** - Built on Next.js for optimal performance
+
+> "The best way to learn is by doing. Start writing your first MDX blog post today!"
+
+## What's Next?
+
+In future posts, I'll cover:
+
+- Advanced MDX techniques
+- Building custom components
+- SEO optimization
+- Performance best practices
+
+Thanks for reading, and stay tuned for more content!
+
+---
+
+*Published on {new Date(metadata.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}* 
