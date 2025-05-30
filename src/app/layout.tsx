@@ -22,7 +22,7 @@ const firaCode = Fira_Code({
 });
 
 export const metadata: Metadata = {
-  title: "Suibhne's Blog",
+  title: "Molus Blog",
   description: "A place for thoughts, ideas, and technical explorations.",
 };
 

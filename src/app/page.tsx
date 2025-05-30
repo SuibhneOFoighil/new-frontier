@@ -11,9 +11,8 @@ export default function Home() {
             <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 lg:mb-8 text-off-black dark:text-cream-white leading-tight">
               Welcome to{" "}
               <span className="text-orange-red dark:text-orange-red">
-                Suibhne's
+                Molus
               </span>{" "}
-              Blog
             </h1>
             <p className="font-sans text-lg sm:text-xl lg:text-2xl text-off-black/70 dark:text-cream-white/80 mb-8 lg:mb-12 max-w-3xl mx-auto leading-relaxed">
               A place for thoughts, ideas, and technical explorations.
@@ -28,14 +27,6 @@ export default function Home() {
             >
               📝 Read the Blog
             </Link>
-            <a
-              className="w-full sm:w-auto font-sans font-medium px-8 py-4 border-2 border-jade-teal text-jade-teal hover:bg-jade-teal hover:text-cream-white dark:hover:text-off-black rounded-lg transition-all duration-200 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-jade-teal focus:ring-offset-2 focus:ring-offset-cream-white dark:focus:ring-offset-off-black"
-              href="https://nextjs.org/docs"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Next.js Docs
-            </a>
           </div>
 
           {/* Tech Stack */}
