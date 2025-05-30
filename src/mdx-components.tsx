@@ -88,7 +88,6 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     img: (props) => (
       <Image
-        alt={props.alt || 'Image'}
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
         style={{ width: '100%', height: 'auto' }}
         className="rounded-lg shadow-lg my-6 lg:my-8"

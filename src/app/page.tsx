@@ -1,58 +1,99 @@
-import Link from "next/link";
 import Logo from "@/components/Logo";
+import { getBlogPosts } from '@/lib/blog';
 
-export default function Home() {
+export default async function Home() {
+  const posts = await getBlogPosts()
+
   return (
-    <div className="min-h-screen bg-cream-white dark:bg-off-black transition-colors duration-300 flex flex-col">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex flex-col justify-center">
-        <main className="max-w-4xl mx-auto text-center py-6 sm:py-12 lg:py-20">
-          {/* Hero Section */}
-          <div className="mb-10 sm:mb-12 lg:mb-16 px-2 sm:px-0">
-            <h1 className="font-serif text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 sm:mb-6 lg:mb-8 text-off-black dark:text-cream-white leading-tight">
-              <span className="block mb-3 sm:mb-0 sm:inline text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">Welcome to</span>{" "}
-              <span className="text-orange-red dark:text-orange-red flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-3 lg:gap-4 mt-2 sm:mt-0">
-                <Logo width={48} height={48} priority={true} className="sm:order-1" />
-                <span className="sm:order-2 text-5xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">Molus</span>
-              </span>
-            </h1>
-            <p className="font-sans text-lg sm:text-lg md:text-xl lg:text-2xl text-off-black/70 dark:text-cream-white/80 mb-8 sm:mb-8 lg:mb-12 max-w-2xl mx-auto leading-relaxed px-2 sm:px-0">
-              A place for thoughts, ideas, and technical explorations.
-            </p>
-          </div>
+    <div className="min-h-screen bg-cream-white dark:bg-off-black transition-colors duration-300">
+      <div className="container mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-12">
+        {/* Minimal Hero Section */}
+        <header className="text-center mb-8 sm:mb-12">
+          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold mb-3 text-off-black dark:text-cream-white leading-tight">
+            <span className="text-orange-red dark:text-orange-red flex items-center justify-center gap-3">
+              <Logo width={40} height={40} priority={true} />
+              <span>Molus</span>
+            </span>
+          </h1>
+          <p className="font-sans text-base sm:text-lg text-off-black/70 dark:text-cream-white/80 max-w-xl mx-auto leading-relaxed">
+            Thoughts, ideas, and technical explorations
+          </p>
+          <div className="w-16 sm:w-24 h-px bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mt-4 sm:mt-6"></div>
+        </header>
+        
+        {/* Blog Posts */}
+        <main className="max-w-4xl mx-auto">
+          {posts.length > 0 ? (
+            <div className="grid gap-4 sm:gap-6 md:gap-8">
+              {posts.map((post, index) => (
+                <article 
+                  key={post.slug} 
+                  className="group relative bg-cream-white dark:bg-off-black border border-off-black/10 dark:border-cream-white/20 rounded-lg sm:rounded-xl p-4 sm:p-6 md:p-8 hover:shadow-lg sm:hover:shadow-xl hover:shadow-off-black/5 dark:hover:shadow-cream-white/5 transition-all duration-300 active:scale-[0.98] sm:hover:-translate-y-1"
+                >
+                  <a 
+                    href={`/blog/${post.slug}`}
+                    className="block touch-manipulation"
+                  >
+                    {/* Post Number and Date */}
+                    <div className="flex items-center justify-between mb-3 sm:mb-4">
+                      <span className="font-mono text-xs text-off-black/40 dark:text-cream-white/40">
+                        {String(index + 1).padStart(2, '0')}
+                      </span>
+                      <time className="font-mono text-xs text-off-black/60 dark:text-cream-white/60">
+                        {new Date(post.date).toLocaleDateString('en-US', {
+                          year: 'numeric',
+                          month: 'short',
+                          day: 'numeric'
+                        })}
+                      </time>
+                    </div>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-4 md:gap-6 items-center justify-center mb-10 sm:mb-12 lg:mb-16 px-4 sm:px-0">
-            <Link
-              className="w-full sm:w-auto font-sans font-semibold px-8 sm:px-8 py-4 sm:py-4 bg-orange-red hover:bg-orange-red/90 active:bg-orange-red/95 text-cream-white rounded-xl transition-all duration-200 hover:shadow-lg active:scale-[0.98] sm:hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange-red focus:ring-offset-2 focus:ring-offset-cream-white dark:focus:ring-offset-off-black touch-manipulation min-h-[52px] flex items-center justify-center text-lg"
-              href="/blog"
-            >
-              <span>📝 Read the Blog</span>
-            </Link>
-          </div>
+                    {/* Post Content */}
+                    <h2 className="font-serif text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 text-off-black dark:text-cream-white group-hover:text-orange-red dark:group-hover:text-orange-red transition-colors duration-200 leading-tight">
+                      {post.title}
+                    </h2>
+                    
+                    <p className="font-sans text-sm sm:text-base text-off-black/70 dark:text-cream-white/80 mb-4 sm:mb-6 leading-relaxed">
+                      {post.excerpt}
+                    </p>
 
-          {/* Content Themes */}
-          <div className="mb-8 sm:mb-8 lg:mb-12 px-4 sm:px-0">
-            <p className="font-sans text-sm sm:text-sm md:text-base text-off-black/60 dark:text-cream-white/60 mb-4 sm:mb-4">
-              Exploring the intersection of institutions, politics, and society
-            </p>
-            <div className="flex flex-wrap justify-center gap-3 sm:gap-3 md:gap-4 max-w-md mx-auto">
-              <span className="font-mono text-sm px-3 sm:px-3 py-2 bg-off-black/5 dark:bg-cream-white/10 text-off-black dark:text-cream-white rounded-full border border-off-black/10 dark:border-cream-white/20 whitespace-nowrap">
-                Institutional Analysis
-              </span>
-              <span className="font-mono text-sm px-3 sm:px-3 py-2 bg-off-black/5 dark:bg-cream-white/10 text-off-black dark:text-cream-white rounded-full border border-off-black/10 dark:border-cream-white/20 whitespace-nowrap">
-                Political Commentary
-              </span>
-              <span className="font-mono text-sm px-3 sm:px-3 py-2 bg-off-black/5 dark:bg-cream-white/10 text-off-black dark:text-cream-white rounded-full border border-off-black/10 dark:border-cream-white/20 whitespace-nowrap">
-                Social Justice
-              </span>
-              <span className="font-mono text-sm px-3 sm:px-3 py-2 bg-off-black/5 dark:bg-cream-white/10 text-off-black dark:text-cream-white rounded-full border border-off-black/10 dark:border-cream-white/20 whitespace-nowrap">
-                Higher Education
-              </span>
+                    {/* Read More */}
+                    <div className="flex items-center font-sans text-sm sm:text-base font-medium text-jade-teal group-hover:text-orange-red transition-colors duration-200 min-h-[44px] sm:min-h-0">
+                      <span className="mr-2">Read more</span>
+                      <svg 
+                        className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </div>
+                  </a>
+
+                  {/* Decorative Element */}
+                  <div className="absolute bottom-0 left-4 sm:left-6 md:left-8 right-4 sm:right-6 md:right-8 h-px bg-gradient-to-r from-transparent via-jade-teal/30 to-transparent"></div>
+                </article>
+              ))}
             </div>
-          </div>
-
-          {/* Decorative Element */}
-          <div className="w-20 sm:w-24 h-px bg-gradient-to-r from-transparent via-gold to-transparent mx-auto"></div>
+          ) : (
+            <div className="text-center py-8 sm:py-12 px-4">
+              <div className="max-w-sm mx-auto">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-off-black/5 dark:bg-cream-white/10 flex items-center justify-center">
+                  <svg className="w-8 h-8 text-off-black/40 dark:text-cream-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                </div>
+                <p className="font-sans text-base sm:text-lg text-off-black/60 dark:text-cream-white/60 mb-2">
+                  No blog posts yet
+                </p>
+                <p className="font-sans text-sm text-off-black/50 dark:text-cream-white/50">
+                  Check back soon for new content!
+                </p>
+              </div>
+            </div>
+          )}
         </main>
       </div>
     </div>
