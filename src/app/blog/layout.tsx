@@ -1,8 +1,7 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
-import Header from '../components/Header'
-import Logo from '../components/Logo'
+import Header from '../../components/Header'
 
 export default function BlogLayout({
   children,

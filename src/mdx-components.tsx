@@ -1,5 +1,7 @@
 import type { MDXComponents } from 'mdx/types'
 import Image, { ImageProps } from 'next/image'
+import YouTube from '@/components/YouTube'
+import Subscribe from '@/components/Subscribe'
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -32,7 +34,9 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     a: ({ children, href }) => (
       <a 
         href={href} 
-        className="font-sans text-orange-red dark:text-orange-red hover:text-jade-teal dark:hover:text-jade-teal underline decoration-2 underline-offset-2 transition-colors duration-200"
+        className="relative font-mono text-xs align-super text-jade-teal dark:text-jade-teal hover:text-orange-red dark:hover:text-orange-red no-underline hover:underline decoration-1 underline-offset-2 transition-colors duration-200 ml-0.5 px-1 py-0.5 bg-jade-teal/10 dark:bg-jade-teal/20 rounded border border-jade-teal/20 dark:border-jade-teal/30 hover:bg-orange-red/10 dark:hover:bg-orange-red/20 hover:border-orange-red/30"
+        target="_blank"
+        rel="noopener noreferrer"
       >
         {children}
       </a>
@@ -84,6 +88,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     img: (props) => (
       <Image
+        alt={props.alt || 'Image'}
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
         style={{ width: '100%', height: 'auto' }}
         className="rounded-lg shadow-lg my-6 lg:my-8"
@@ -104,6 +109,8 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         </div>
       </div>
     ),
+    YouTube,
+    Subscribe,
     ...components,
   }
 } 

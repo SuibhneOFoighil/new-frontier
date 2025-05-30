@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { getBlogPosts } from '@/lib/blog'
-import Logo from '../components/Logo'
 
 export default async function BlogPage() {
   // Dynamically fetch posts from the file system
@@ -52,7 +51,7 @@ export default async function BlogPage() {
                       {post.title}
                     </h2>
                     
-                    <p className="font-sans text-sm sm:text-base md:text-lg text-off-black/70 dark:text-cream-white/80 mb-4 sm:mb-6 lg:mb-8 leading-relaxed line-clamp-3 sm:line-clamp-none">
+                    <p className="font-sans text-sm sm:text-base md:text-lg text-off-black/70 dark:text-cream-white/80 mb-4 sm:mb-6 lg:mb-8 leading-relaxed">
                       {post.excerpt}
                     </p>
 
