@@ -12,8 +12,8 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    if (!process.env.NEXT_PUBLIC_RESEND_API_KEY) {
-      console.error('NEXT_PUBLIC_RESEND_API_KEY not configured')
+    if (!process.env.RESEND_API_KEY) {
+      console.error('RESEND_API_KEY not configured')
       return NextResponse.json(
         { error: 'Newsletter service not configured' },
         { status: 500 }
@@ -23,7 +23,7 @@ export async function POST(request: NextRequest) {
     // Generate secure confirmation token
     const timestamp = Date.now()
     const signature = createHash('sha256')
-      .update(`${email}|${timestamp}|${process.env.NEXT_PUBLIC_CONFIRMATION_SECRET_KEY || 'fallback-secret'}`)
+      .update(`${email}|${timestamp}|${process.env.CONFIRMATION_SECRET_KEY || 'fallback-secret'}`)
       .digest('hex')
     
     const confirmationToken = Buffer.from(`${email}|${timestamp}|${signature}`).toString('base64url')
@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
     const emailResponse = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${process.env.NEXT_PUBLIC_RESEND_API_KEY}`,
+        'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
@@ -49,7 +49,7 @@ export async function POST(request: NextRequest) {
               Please confirm your subscription by clicking the button below:
             </p>
             <div style="text-align: center; margin: 30px 0;">
-              <a href="${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/api/confirm?token=${confirmationToken}" 
+              <a href="${process.env.APP_URL || 'http://localhost:3000'}/api/confirm?token=${confirmationToken}" 
                  style="background-color: #4a9d9c; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; display: inline-block;">
                 Confirm Subscription
               </a>

@@ -20,7 +20,7 @@ function validateToken(token: string): { email: string; timestamp: number } | nu
 
     // Verify signature
     const expectedSignature = createHash('sha256')
-      .update(`${email}|${timestamp}|${process.env.NEXT_PUBLIC_CONFIRMATION_SECRET_KEY || 'fallback-secret'}`)
+      .update(`${email}|${timestamp}|${process.env.CONFIRMATION_SECRET_KEY || 'fallback-secret'}`)
       .digest('hex')
     
     const providedSignature = Buffer.from(signature, 'hex')
@@ -53,12 +53,12 @@ export async function GET(request: NextRequest) {
 
     const { email } = tokenData
 
-    if (!process.env.NEXT_PUBLIC_RESEND_API_KEY) {
-      console.error('NEXT_PUBLIC_RESEND_API_KEY not configured')
+    if (!process.env.RESEND_API_KEY) {
+      console.error('RESEND_API_KEY not configured')
       return NextResponse.redirect(new URL('/?error=service-unavailable', request.url))
     }
 
-    const audienceId = process.env.NEXT_PUBLIC_RESEND_AUDIENCE_ID
+    const audienceId = process.env.RESEND_AUDIENCE_ID
     
     if (!audienceId) {
       console.error('RESEND_AUDIENCE_ID not configured')
@@ -69,7 +69,7 @@ export async function GET(request: NextRequest) {
     const response = await fetch(`https://api.resend.com/audiences/${audienceId}/contacts`, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${process.env.NEXT_PUBLIC_RESEND_API_KEY}`,
+        'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
