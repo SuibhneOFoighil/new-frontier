@@ -2,6 +2,7 @@ import type { MDXComponents } from 'mdx/types'
 import Image, { ImageProps } from 'next/image'
 import YouTube from '@/components/YouTube'
 import Subscribe from '@/components/Subscribe'
+import Slider from '@/app/blog/intro-to-vibe-coding/demo-slider'
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -79,7 +80,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       </strong>
     ),
     em: ({ children }) => (
-      <em className="font-serif italic text-jade-teal dark:text-jade-teal">
+      <em className="font-sans italic text-jade-teal dark:text-jade-teal">
         {children}
       </em>
     ),
@@ -111,6 +112,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     YouTube,
     Subscribe,
+    Slider,
     ...components,
   }
 } 
