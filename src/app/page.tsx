@@ -1,11 +1,13 @@
 import Logo from "@/components/Logo";
 import { getBlogPosts } from '@/lib/blog';
+import ConfirmationToast from '@/components/ConfirmationToast';
 
 export default async function Home() {
   const posts = await getBlogPosts()
 
   return (
     <div className="min-h-screen bg-cream-white dark:bg-off-black transition-colors duration-300">
+      <ConfirmationToast />
       <div className="container mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-12">
         {/* Minimal Hero Section */}
         <header className="text-center mb-8 sm:mb-12">
@@ -16,7 +18,7 @@ export default async function Home() {
             </span>
           </h1>
           <p className="font-sans text-base sm:text-lg text-off-black/70 dark:text-cream-white/80 max-w-xl mx-auto leading-relaxed">
-            Thoughts, ideas, and technical explorations
+            Thoughts, ideas, and technical explorations on the future of software.
           </p>
           <div className="w-16 sm:w-24 h-px bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mt-4 sm:mt-6"></div>
         </header>

@@ -92,6 +92,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         style={{ width: '100%', height: 'auto' }}
         className="rounded-lg shadow-lg my-6 lg:my-8"
         {...(props as ImageProps)}
+        alt={props.alt || ""}
       />
     ),
     aside: ({ children }: { children: React.ReactNode }) => (

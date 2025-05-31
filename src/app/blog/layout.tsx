@@ -33,7 +33,7 @@ export default function BlogLayout({
           <div className="text-center">
             <div className="w-24 h-px bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-6"></div>
             <p className="font-sans text-sm text-off-black/60 dark:text-cream-white/60">
-              © 2024 Molus Blog. Built with Next.js and MDX.
+              © 2025 Molus Blog. All rights reserved.
             </p>
           </div>
         </div>

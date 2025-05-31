@@ -29,13 +29,23 @@ export default function Subscribe({
     setStatus('loading')
     
     try {
-      // TODO: Replace with your actual newsletter signup endpoint
-      // For now, we'll simulate a successful signup
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      
-      setStatus('success')
-      setMessage('Thanks for subscribing! Check your email for confirmation.')
-      setEmail('')
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      })
+
+      if (response.ok) {
+        setStatus('success')
+        setMessage('Thanks for subscribing! Check your email for confirmation.')
+        setEmail('')
+      } else {
+        const errorData = await response.json()
+        setStatus('error')
+        setMessage(errorData.error || 'Something went wrong. Please try again.')
+      }
     } catch (error) {
       console.error(error)
       setStatus('error')
