@@ -82,7 +82,7 @@ export default function SubscribePage() {
                       Future of Humanity
                     </h3>
                     <p className="font-sans text-sm text-off-black/70 dark:text-cream-white/80">
-                      Thoughtful perspectives on where we're heading as a species and how we can shape a more ethical future.
+                      Thoughtful perspectives on where we&apos;re heading as a species and how we can shape a more ethical future.
                     </p>
                   </div>
                 </div>
