@@ -2,10 +2,10 @@ import { getBlogPosts } from '@/lib/blog';
 import ConfirmationToast from '@/components/ConfirmationToast';
 
 export const metadata = {
-  title: 'Blog - Molus',
+  title: 'Blog - New Frontier',
   description: 'Thoughts, ideas, and technical explorations on the future of AI-driven software development.',
   openGraph: {
-    title: 'Blog - Molus',
+    title: 'Blog - New Frontier',
     description: 'Thoughts, ideas, and technical explorations on the future of AI-driven software development.',
     type: 'website',
   },

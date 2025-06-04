@@ -23,37 +23,37 @@ const firaCode = Fira_Code({
 
 export const metadata: Metadata = {
   title: {
-    default: "Molus - Technical Blog & Software Insights",
-    template: "%s | Molus"
+    default: "New Frontier - Thoughts on Ethics, Society & the Future of Humanity",
+    template: "%s | New Frontier"
   },
   description: "Thoughts, ideas, and technical explorations on the future of software development. A blog by Suibhne focused on modern web technologies, programming insights, and technical innovation.",
   keywords: ["software development", "web development", "programming", "technology", "blog", "technical writing"],
   authors: [{ name: "Suibhne" }],
   creator: "Suibhne",
-  publisher: "Molus",
-  metadataBase: new URL("https://molus.app"),
+  publisher: "New Frontier",
+  metadataBase: new URL("https://newfrontier.app"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://molus.app",
-    title: "Molus - Technical Blog & Software Insights",
+    url: "https://newfrontier.app",
+    title: "New Frontier - Thoughts on Ethics, Society & the Future of Humanity",
     description: "Thoughts, ideas, and technical explorations on the future of software development.",
-    siteName: "Molus",
+    siteName: "New Frontier",
     images: [
       {
         url: "/logo.jpeg",
         width: 1200,
         height: 630,
-        alt: "Molus Logo",
+        alt: "New Frontier Logo",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Molus - Technical Blog & Software Insights",
+    title: "New Frontier - Thoughts on Ethics, Society & the Future of Humanity",
     description: "Thoughts, ideas, and technical explorations on the future of software development.",
     images: ["/logo.jpeg"],
   },

@@ -4,7 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Molus.app is a Next.js-based blog/application built with modern React (v19) and TypeScript. It uses MDX for blog content with custom components for enhanced blog functionality, including YouTube embeds and subscription features.
+This is a Next.js 15 blog application called "New Frontier" focused on ethics, society, and the future of humanity.
+
+New Frontier is a Next.js-based blog/application built with modern React (v19) and TypeScript. It uses MDX for blog content with custom components for enhanced blog functionality, including YouTube embeds and subscription features.
 
 ## Development Commands
 

@@ -32,7 +32,7 @@ export default function Header({
             className="flex items-center gap-2 font-serif text-base sm:text-lg font-bold text-off-black dark:text-cream-white hover:text-orange-red dark:hover:text-orange-red transition-colors duration-200"
           >
             <Logo width={24} height={24} />
-            <span>Molus Blog</span>
+            <span>New Frontier</span>
           </Link>
         </div>
       </div>

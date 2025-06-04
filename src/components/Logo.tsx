@@ -18,7 +18,7 @@ export default function Logo({
       {/* Light mode logo (dark logo) */}
       <Image
         src="/logo-off-black.svg"
-        alt="Molus Blog Logo"
+        alt="New Frontier Logo"
         width={width}
         height={height}
         priority={priority}
@@ -28,7 +28,7 @@ export default function Logo({
       {/* Dark mode logo (light logo) */}
       <Image
         src="/logo-cream-white.svg"
-        alt="Molus Blog Logo"
+        alt="New Frontier Logo"
         width={width}
         height={height}
         priority={priority}

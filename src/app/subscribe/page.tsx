@@ -27,15 +27,15 @@ export default function SubscribePage() {
           </h1>
           
           <p className="font-sans text-lg sm:text-xl text-off-black/70 dark:text-cream-white/80 mb-8 leading-relaxed">
-            Join our newsletter to get the latest insights on AI-driven software development, 
-            technical deep-dives, and thought-provoking explorations delivered directly to your inbox.
+            Join our newsletter to receive thoughtful essays and insights exploring the ethical questions 
+            at the intersection of technology, capitalism, and human relations delivered directly to your inbox.
           </p>
           
           <div className="w-24 h-px bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-12"></div>
           
           <Subscribe 
-            title="Subscribe to Molus Blog"
-            description="Get notified when new articles about AI-driven software development are published. No spam, quality content only."
+            title="Subscribe to New Frontier"
+            description="Get notified when new essays exploring ethics, society, and the future of humanity are published. Quality thought-provoking content only."
           />
           
           <div className="mt-12 pt-8 border-t border-off-black/10 dark:border-cream-white/20">
@@ -51,10 +51,10 @@ export default function SubscribePage() {
                   </div>
                   <div>
                     <h3 className="font-sans font-semibold text-off-black dark:text-cream-white mb-1">
-                      Technical Deep Dives
+                      Ethics & Society
                     </h3>
                     <p className="font-sans text-sm text-off-black/70 dark:text-cream-white/80">
-                      In-depth explorations of cutting-edge development practices and AI integration strategies.
+                      Deep explorations of moral questions in our rapidly changing world and their implications for society.
                     </p>
                   </div>
                 </div>
@@ -65,10 +65,10 @@ export default function SubscribePage() {
                   </div>
                   <div>
                     <h3 className="font-sans font-semibold text-off-black dark:text-cream-white mb-1">
-                      Future of Development
+                      Capitalism & Technology
                     </h3>
                     <p className="font-sans text-sm text-off-black/70 dark:text-cream-white/80">
-                      Thoughts and predictions on how AI will reshape software engineering workflows.
+                      Critical analysis of how economic systems and technological progress shape human relationships and values.
                     </p>
                   </div>
                 </div>
@@ -79,10 +79,10 @@ export default function SubscribePage() {
                   </div>
                   <div>
                     <h3 className="font-sans font-semibold text-off-black dark:text-cream-white mb-1">
-                      Practical Insights
+                      Future of Humanity
                     </h3>
                     <p className="font-sans text-sm text-off-black/70 dark:text-cream-white/80">
-                      Real-world applications and lessons learned from building with AI-powered tools.
+                      Thoughtful perspectives on where we're heading as a species and how we can shape a more ethical future.
                     </p>
                   </div>
                 </div>

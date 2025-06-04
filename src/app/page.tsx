@@ -14,11 +14,11 @@ export default function Home() {
               <span className="block mb-3 sm:mb-0 sm:inline text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">Welcome to</span>{" "}
               <span className="text-orange-red dark:text-orange-red flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-3 lg:gap-4 mt-2 sm:mt-0">
                 <Logo width={48} height={48} priority={true} className="sm:order-1" />
-                <span className="sm:order-2 text-5xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">Molus</span>
+                <span className="sm:order-2 text-5xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">New Frontier</span>
               </span>
             </h1>
             <p className="font-sans text-lg sm:text-lg md:text-xl lg:text-2xl text-off-black/70 dark:text-cream-white/80 mb-8 sm:mb-8 lg:mb-12 max-w-2xl mx-auto leading-relaxed px-2 sm:px-0">
-              Thoughts, ideas, and technical explorations on the future of AI-driven software development.
+              Thoughts, ideas, and essays on the future of humanity.
             </p>
           </div>
 
@@ -41,20 +41,20 @@ export default function Home() {
           {/* Content Themes */}
           <div className="mb-8 sm:mb-8 lg:mb-12 px-4 sm:px-0">
             <p className="font-sans text-sm sm:text-sm md:text-base text-off-black/60 dark:text-cream-white/60 mb-4 sm:mb-4">
-              Exploring the intersection of AI, development, and the future of software
+              Exploring ethical questions at the intersection of technology, capitalism, and human relations.
             </p>
             <div className="flex flex-wrap justify-center gap-3 sm:gap-3 md:gap-4 max-w-md mx-auto">
               <span className="font-mono text-sm px-3 sm:px-3 py-2 bg-off-black/5 dark:bg-cream-white/10 text-off-black dark:text-cream-white rounded-full border border-off-black/10 dark:border-cream-white/20 whitespace-nowrap">
-                AI Development
+                Ethics & Society
               </span>
               <span className="font-mono text-sm px-3 sm:px-3 py-2 bg-off-black/5 dark:bg-cream-white/10 text-off-black dark:text-cream-white rounded-full border border-off-black/10 dark:border-cream-white/20 whitespace-nowrap">
-                Technical Explorations
+                Capitalism & Technology
               </span>
               <span className="font-mono text-sm px-3 sm:px-3 py-2 bg-off-black/5 dark:bg-cream-white/10 text-off-black dark:text-cream-white rounded-full border border-off-black/10 dark:border-cream-white/20 whitespace-nowrap">
-                Future of Code
+                Social Justice
               </span>
               <span className="font-mono text-sm px-3 sm:px-3 py-2 bg-off-black/5 dark:bg-cream-white/10 text-off-black dark:text-cream-white rounded-full border border-off-black/10 dark:border-cream-white/20 whitespace-nowrap">
-                Software Innovation
+                Political Ethics
               </span>
             </div>
           </div>
