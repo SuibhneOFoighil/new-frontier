@@ -4,14 +4,12 @@ import { useRouter } from 'next/navigation'
 import Header from '@/components/Header'
 import Subscribe from '@/components/Subscribe'
 import Footer from '@/components/Footer'
-import ConfirmationToast from '@/components/ConfirmationToast'
 
 export default function SubscribePage() {
   const router = useRouter()
 
   return (
     <div className="min-h-screen bg-cream-white dark:bg-off-black transition-colors duration-300">
-      <ConfirmationToast />
       
       {/* Navigation */}
       <Header 

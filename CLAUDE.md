@@ -29,15 +29,19 @@ The project can also be run using Bun:
 bun dev
 ```
 
+**Important**: Always run `npm run lint` after making changes to ensure code quality. The project uses ESLint with Next.js configurations.
+
 ## Architecture
 
 ### Core Technologies
 - **Next.js** (v15.3) with App Router
 - **React** (v19)
-- **TypeScript**
-- **MDX** for blog content
-- **TailwindCSS** for styling
+- **TypeScript** with strict mode enabled
+- **MDX** for blog content with `@mdx-js/loader` and `@mdx-js/react`
+- **TailwindCSS** (v4) for styling with custom design tokens
+- **Turbopack** for fast development builds
 - **Husky** for Git hooks
+- **Additional libraries**: Framer Motion (animations), Sonner (toasts), clsx/tailwind-merge (conditional styling)
 
 ### Key Components
 
@@ -58,8 +62,13 @@ The project follows a standard Next.js App Router structure:
 
 3. **Design System**:
    - Custom color scheme with variables like `jade-teal`, `orange-red`, `cream-white`, and `off-black`
+   - Typography: EB Garamond (serif), Lato (sans-serif), Fira Code (monospace)
    - Responsive design patterns with Tailwind breakpoints
-   - Font families: serif, sans-serif, and monospace fonts for different elements
+   - Dark/light mode support through Tailwind classes
+
+4. **API Routes**:
+   - `/api/subscribe` - Newsletter subscription handling
+   - `/api/confirm` - Email confirmation logic
 
 ## File Structure
 
@@ -67,13 +76,36 @@ The project follows a standard Next.js App Router structure:
 - /src
   - /app           # Next.js app router pages and routes
     - /blog        # Blog posts and layout
-  - /components    # React components
-  - /lib           # Utility functions
+    - /api         # API routes (subscribe, confirm)
+    - /subscribe   # Subscription page
+  - /components    # Reusable React components
+  - /lib           # Utility functions (blog.ts for post management)
   - mdx-components.tsx # Custom MDX component definitions
 ```
 
 ## Workflow Notes
 
-- The blog content is created in MDX format with frontmatter-like metadata at the top
-- Custom components can be used directly within MDX content
-- The site has light/dark mode support through tailwind classes
+- **Blog Posts**: Created in MDX format with metadata exported at the top of each file
+- **Custom Components**: Can be used directly within MDX content (YouTube, Subscribe, Callout)
+- **Styling**: Uses Tailwind CSS with custom design tokens and dark/light mode support
+- **Path Aliases**: `@/*` maps to `./src/*` for clean imports
+- **SEO**: Comprehensive metadata, OpenGraph, and Twitter cards configured
+- **Domain**: Production site at `newfrontier.app`
+
+## Blog Post Structure
+
+Each blog post follows this pattern:
+```typescript
+// Export metadata at the top
+export const metadata = {
+  title: "Post Title",
+  excerpt: "Brief description...",
+  date: "2024-01-01",
+  author: "Author Name"
+};
+
+// Then the MDX content
+# Post Title
+
+Content here...
+```

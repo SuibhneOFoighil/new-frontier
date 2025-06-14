@@ -1,6 +1,4 @@
-'use client'
-
-import React, { useState } from 'react'
+import React from 'react'
 
 interface SubscribeProps {
   className?: string
@@ -13,46 +11,6 @@ export default function Subscribe({
   title = "Subscribe for Updates",
   description = "Get notified when new articles are published"
 }: SubscribeProps) {
-  const [email, setEmail] = useState('')
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
-  const [message, setMessage] = useState('')
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    
-    if (!email) {
-      setStatus('error')
-      setMessage('Please enter your email address')
-      return
-    }
-
-    setStatus('loading')
-    
-    try {
-      const response = await fetch('/api/subscribe', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email }),
-      })
-
-      if (response.ok) {
-        setStatus('success')
-        setMessage('Thanks for subscribing! Check your email for confirmation.')
-        setEmail('')
-      } else {
-        const errorData = await response.json()
-        setStatus('error')
-        setMessage(errorData.error || 'Something went wrong. Please try again.')
-      }
-    } catch (error) {
-      console.error(error)
-      setStatus('error')
-      setMessage('Something went wrong. Please try again.')
-    }
-  }
-
   return (
     <div className={`my-8 lg:my-12 ${className}`}>
       <div className="bg-gradient-to-r from-jade-teal/10 to-gold/10 dark:from-jade-teal/20 dark:to-gold/20 border border-jade-teal/20 dark:border-jade-teal/30 rounded-lg p-6 sm:p-8">
@@ -64,38 +22,40 @@ export default function Subscribe({
             {description}
           </p>
           
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form
+            action="https://buttondown.com/api/emails/embed-subscribe/suibhneofoighil"
+            method="post"
+            className="embeddable-buttondown-form space-y-4"
+          >
             <div className="flex flex-col sm:flex-row gap-3">
               <input
                 type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email"
-                disabled={status === 'loading'}
-                className="flex-1 px-4 py-3 rounded-lg border border-off-black/20 dark:border-cream-white/30 bg-cream-white dark:bg-off-black/50 text-off-black dark:text-cream-white placeholder-off-black/50 dark:placeholder-cream-white/50 font-sans text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-jade-teal focus:border-transparent transition-all duration-200 disabled:opacity-50"
+                name="email"
+                placeholder="you@example.com"
+                required
+                className="flex-1 px-4 py-3 rounded-lg border border-off-black/20 dark:border-cream-white/30 bg-cream-white dark:bg-off-black/50 text-off-black dark:text-cream-white placeholder-off-black/50 dark:placeholder-cream-white/50 font-sans text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-jade-teal focus:border-transparent transition-all duration-200"
               />
+              <input type="hidden" value="1" name="embed" />
               <button
                 type="submit"
-                disabled={status === 'loading'}
-                className="px-6 py-3 bg-jade-teal hover:bg-orange-red text-cream-white font-sans font-medium text-sm sm:text-base rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-jade-teal focus:ring-offset-2 dark:focus:ring-offset-off-black whitespace-nowrap"
+                className="px-6 py-3 bg-jade-teal hover:bg-orange-red text-cream-white font-sans font-medium text-sm sm:text-base rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-jade-teal focus:ring-offset-2 dark:focus:ring-offset-off-black whitespace-nowrap"
               >
-                {status === 'loading' ? 'Subscribing...' : 'Subscribe'}
+                Subscribe
               </button>
             </div>
-            
-            {message && (
-              <p className={`text-sm font-sans ${
-                status === 'success' 
-                  ? 'text-jade-teal dark:text-jade-teal' 
-                  : 'text-orange-red dark:text-orange-red'
-              }`}>
-                {message}
-              </p>
-            )}
           </form>
           
           <p className="font-sans text-xs text-off-black/50 dark:text-cream-white/50 mt-4">
-            No spam, unsubscribe at any time.
+            No spam, unsubscribe at any time. Powered by{' '}
+            <a
+              href="https://buttondown.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-jade-teal hover:text-orange-red transition-colors"
+            >
+              Buttondown
+            </a>
+            .
           </p>
         </div>
       </div>

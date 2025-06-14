@@ -1,5 +1,4 @@
-import { getBlogPosts } from '@/lib/blog';
-import ConfirmationToast from '@/components/ConfirmationToast';
+import { getBlogPosts } from '@/lib/blog';  
 
 export const metadata = {
   title: 'Blog - New Frontier',
@@ -16,7 +15,6 @@ export default async function BlogPage() {
 
   return (
     <div className="min-h-screen bg-cream-white dark:bg-off-black transition-colors duration-300">
-      <ConfirmationToast />
       <div className="container mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-12">
         <header className="text-center mb-8 sm:mb-12">
           <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold mb-3 text-off-black dark:text-cream-white leading-tight">

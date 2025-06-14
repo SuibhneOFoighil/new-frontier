@@ -1,11 +1,9 @@
 import Link from "next/link";
 import Logo from "@/components/Logo";
-import ConfirmationToast from '@/components/ConfirmationToast';
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-cream-white dark:bg-off-black transition-colors duration-300 flex flex-col">
-      <ConfirmationToast />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex flex-col justify-center">
         <main className="max-w-4xl mx-auto text-center py-6 sm:py-12 lg:py-20">
           {/* Hero Section */}
@@ -18,7 +16,7 @@ export default function Home() {
               </span>
             </h1>
             <p className="font-sans text-lg sm:text-lg md:text-xl lg:text-2xl text-off-black/70 dark:text-cream-white/80 mb-8 sm:mb-8 lg:mb-12 max-w-2xl mx-auto leading-relaxed px-2 sm:px-0">
-              Thoughts, ideas, and essays on the future of humanity.
+              Thoughts, ideas, and essays on humane living in a techno-capitalist world.
             </p>
           </div>
 
